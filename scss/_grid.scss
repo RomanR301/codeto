@@ -1,0 +1,123 @@
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 15px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.d-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+.m-row {
+  margin: 0;
+}
+.m-0 {
+  margin: 0;
+}
+.p-0 {
+  padding: 0;
+}
+.w-100 {
+  width: 100%;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-24 {
+  margin-bottom: 24px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.mb-60 {
+  margin-bottom: 60px;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.justify-content-start {
+  justify-content: flex-start;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+.align-item-center {
+  align-items: center;
+}
+.flex-direction-column {
+  flex-direction: column;
+}
+
+@for $i from 1 through 12 {
+  .col-xs-#{$i} {
+    @include grid-size(8.333333% * $i);
+  }
+}
+@media (min-width: ($breakpoint-grid-sm)) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      @include grid-size(8.333333% * $i);
+    }
+  }
+}
+@media (min-width: ($breakpoint-grid-md)) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      @include grid-size(8.333333% * $i);
+    }
+  }
+}
+@media (min-width: ($breakpoint-grid-lg)) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      @include grid-size(8.333333% * $i);
+    }
+  }
+}
+@media (min-width: ($breakpoint-grid-xl)) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      @include grid-size(8.333333% * $i);
+    }
+  }
+}
+@media (max-width: (375px)) {
+  @for $i from 1 through 12 {
+    .col-exs-#{$i} {
+      @include grid-size(8.333333% * $i);
+    }
+  }
+}

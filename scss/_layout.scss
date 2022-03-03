@@ -1,0 +1,351 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1002;
+  padding: 25px 0;
+  @include transition(.3);
+  @media (max-width: $breakpoint-lg) {
+    padding: 20px 0;
+  }
+  &.scroll {
+    background: $backgroundColor;
+    padding: 10px 0;
+    @media (max-width: $breakpoint-lg) {
+      padding: 20px 0;
+    }
+  }
+  &.js-nav-open {
+    .header-nav {
+      left: 0;
+    }
+    .burger {
+      &::before {
+        transform: rotate(45deg);
+        top: 50%;
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: 50%;
+        bottom: unset;
+      }
+    }
+  }
+  .container {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    height: 40px;
+    display: block;
+    z-index: 22;
+    @media (max-width: $breakpoint-md) {
+      width: 103px;
+    }
+    img {
+      @include defaultIcon(contain);
+    }
+  }
+  &-nav {
+    display: flex;
+    align-items: center;
+    @media (max-width: $breakpoint-lg) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: $backgroundColor;
+      top: 0;
+      left: -150vw;
+      padding: 125px 15px 30px 15px;
+      flex-direction: column;
+      align-items: flex-start;
+      @include transition(.3);
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  &-item {
+    margin-right: 50px;
+    @media (max-width: $breakpoint-xl) {
+      margin-right: 30px;
+    }
+    @media (max-width: $breakpoint-lg) {
+      margin: 0 0 30px 0;
+    }
+    a {
+      color: #FFFFFF;
+      font-size: 18px;
+      text-decoration: none;
+      position: relative;
+      @media (max-width: $breakpoint-lg) {
+        font-size: 22px;
+      }
+      &:before {
+        content: '';
+        background: #ffffff;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        height: 2px;
+        opacity: 0;
+        @include transition(.3);
+      }
+      &:hover:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.lang {
+  color: $defaultText;
+  line-height: 17px;
+  font-size: 18px;
+  padding: 0 10px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &-options {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    @include transition(.3);
+    margin-top: 8px;
+    padding: 0 20px;
+    @media (max-width: $breakpoint-lg) {
+      padding: 0;
+      margin-top: 16px;
+    }
+  }
+  &-option {
+    position: relative;
+    display: block;
+    font-weight: 500;
+    color: $defaultText;
+    line-height: 30px;
+    cursor: pointer;
+    @include transition(.3);
+    z-index: 99;
+    display: flex;
+    text-decoration: none;
+    & span {
+      display: block;
+      &:first-child {
+        margin-right: 10px;
+      }
+      &:nth-child(2) {
+        padding-top: 3px;
+      }
+    }
+    &:hover {
+      color: $goldenColor;
+    }
+  }
+}
+
+.lang-select {
+  &-wrapper {
+    position: relative;
+    user-select: none;
+    width: 100%;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+  &__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: $defaultText;
+    line-height: 24px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    @include transition(.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+    @media (max-width: $breakpoint-lg) {
+      padding: 0;
+      background: transparent;
+    }
+    &:hover {
+      background: rgba(255, 255, 253, 0.2);
+      @media (max-width: $breakpoint-lg) {
+        background: transparent;
+      }
+    }
+    & span {
+      color: $defaultText;
+      line-height: 1;
+      display: flex;
+      @include transition(.3);
+      &:first-child {
+        margin-right: 8px;
+      } 
+      &:nth-child(2){
+        padding-top: 3px;
+      }
+    }
+    & i {
+      background-image: url('../img/icon-arrow.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 18px;
+      display: block;
+      margin-left: 5px;
+      @include transition(.3);
+    }
+  }
+  &.open {
+    & .lang-select__trigger {
+      background: rgba(255, 255, 253, 0.2);
+      @media (max-width: $breakpoint-lg) {
+        background: transparent;
+      }
+    }
+    & .lang-options {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+    & .lang-select__trigger {
+      & i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.burger {
+  z-index: 100;
+  position: relative;
+  display: flex;
+  max-width: 36px;
+  min-width: 36px;
+  max-height: 36px;
+  min-height: 36px;
+  background: transparent;
+  border: none;
+  display: none;
+  cursor: pointer;
+  @media (max-width: $breakpoint-lg) {
+    display: block;
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $goldenColor;
+    border-radius: 10px;
+    @include transition(.3);
+  }
+  &::before {
+    top: 12px;
+  }
+  &::after {
+    bottom: 12px;
+  }
+}
+
+
+
+.footer {
+  background: $backgroundColor;
+  &-top {
+    padding: 60px 0;
+    border-top: 1px solid #969696;
+    border-bottom: 1px solid #969696;
+  }
+  &-bottom {
+    padding: 20px 0 60px 0;
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .footer__link {
+        color: $grayColor;
+        &:before {
+          background: $grayColor;
+        }
+      }
+      .copyright-text {
+        color: $grayColor;
+      }
+    }
+  }
+  &-icon {
+    display: flex;
+    justify-content: flex-end;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__logo {
+    margin-bottom: 40px;
+    display: flex;
+    width: 168px;
+    img {
+      @include defaultIcon(contain);
+    }
+  }
+  &__link {
+    line-height: 20px;
+    display: block;
+    width: fit-content;
+    margin-right: 50px;
+    text-decoration: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      opacity: 0;
+      @include transition(.3);
+    }
+    &:hover:before {
+      opacity: 1;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__main__link {
+    margin:   0 0 12px 0;
+    font-size: 22px;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+  }
+  &-list {
+    display: flex;
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+    }
+  }
+}
