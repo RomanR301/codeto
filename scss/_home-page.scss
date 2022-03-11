@@ -64,14 +64,14 @@ main {
   @media (max-width: $breakpoint-lg) {
     padding-top: 60px;
   }
+  &-logo {
+    margin-bottom: 16px;
+  }
   .section__description {
     margin-bottom: 120px;
     @media (max-width: $breakpoint-lg) {
       margin-bottom: 60px;
     }
-  }
-  img {
-    @include defaultIcon(cover);
   }
   &-item {
     align-items: center;
@@ -88,15 +88,12 @@ main {
         justify-content: center;
       }
     }
-    h3 {
-      color: $goldenColor;
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
     &__image {
       max-width: 46%;
       flex: 0 0 46%;
+      img {
+        @include defaultIcon(cover);
+      }
       @media (max-width: $breakpoint-md) {
         margin: 20px auto auto auto;
         max-width: 100%;
