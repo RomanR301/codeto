@@ -47,6 +47,8 @@ main {
     line-height: 48px;
     color: $goldenColor;
     margin-bottom: 16px;
+    text-align: center;
+
     @media (max-width: $breakpoint-md) {
       font-size: 36px;
       line-height: 40px;
@@ -54,16 +56,15 @@ main {
   }
   h3 {
     font-size: 22px;
-    max-width: 475px;
+    max-width: 730px;
+    text-align: center;
+    margin: auto;
     line-height: 28px;
   }
 }
 
 .products {
-  padding-top: 120px;
-  @media (max-width: $breakpoint-lg) {
-    padding-top: 60px;
-  }
+  padding-top: 60px;
   &-logo {
     margin-bottom: 16px;
   }
