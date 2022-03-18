@@ -56,6 +56,10 @@ table {
   box-sizing: border-box;
 }
 
+strong {
+  font-weight: 700;
+}
+
 @font-face {
   font-family: "Intro";
   font-display: swap;
@@ -1313,7 +1317,7 @@ main {
 
 .hero-screen h3 {
   font-size: 22px;
-  max-width: 730px;
+  max-width: 1000px;
   text-align: center;
   margin: auto;
   line-height: 28px;

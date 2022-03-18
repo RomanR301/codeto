@@ -56,7 +56,9 @@ table {
   box-sizing: border-box;
 }
 
-
+strong {
+  font-weight: 700;
+}
 
 @mixin font($font_name, $file_name, $weight, $style) {
   @font-face {
